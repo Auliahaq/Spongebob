@@ -1,0 +1,72 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header utama */
+header {
+    background-color: #0B1E4F;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo bundar kiri */
+header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Menu navigasi tengah */
+header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+header nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Bagian profil dan hamburger kanan */
+header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .header-right img {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    object-fit: cover;
+}
+
+header .header-right button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
