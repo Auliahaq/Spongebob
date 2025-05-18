@@ -1,26 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('pages.home'); // ← sesuai folder dan nama file
-});
+// Halaman Utama
+Route::get('/', fn() => view('welcome'));
+Route::get('/home', fn() => view('pages.home'));
+Route::get('/performa', fn() => view('pages.performa'));
+Route::get('/teman', fn() => view('pages.teman'));
+Route::get('/tentang', fn() => view('pages.tentang'));
+Route::get('/artikel-lanjutan', fn() => view('pages.artikel-lanjutan'));
 
-Route::get('/performa', function () {
-    return view('pages.performa'); // ← sesuai folder dan nama file
-});
-
-Route::get('/teman', function () {
-    return view('pages.teman'); // ← sesuai folder dan nama file
-});
-
-Route::get('/tentang', function () {
-    return view('pages.tentang'); // ← sesuai folder dan nama file
-});
-
-Route::get('/artikel-lanjutan', function () {
-    return view('pages.artikel-lanjutan'); // ← sesuai folder dan nama file
-});
+// Auth
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', fn() => Auth::logout() && redirect('/login'))->name('logout');

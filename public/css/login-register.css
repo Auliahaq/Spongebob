@@ -1,0 +1,118 @@
+/* styles.css */
+
+/* ===== Global ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+    #001F3C 0%, #334EAC 15%, #7096D1 30%,
+    #BAD6EB 45%, #D0E3FF 60%, #F7F2EB 75%, #FFF9F0 90%
+  );
+  background-color: #334EAC; /* fallback */
+}
+
+/* ===== Login & Signup Card ===== */
+.login-box,
+.signup-box {
+  background: rgba(255,255,255,0.85);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 320px;
+  max-width: 90%;
+}
+.login-box h2,
+.signup-box h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ===== Form Elements ===== */
+.login-box input,
+.signup-box input {
+  width: 100%;
+  padding: .5rem;
+  margin-bottom: .75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.login-box button,
+.signup-box button {
+  width: 100%;
+  padding: .5rem;
+  border: none;
+  border-radius: 4px;
+  background: #334EAC;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.login-box button:hover,
+.signup-box button:hover {
+  background: #2a3e99;
+}
+
+/* ===== Messages ===== */
+.error {
+  background: #ffe0e0;
+  color: #c00;
+  padding: .5rem;
+  margin-bottom: .75rem;
+  border-radius: 4px;
+  font-size: .9rem;
+}
+.success {
+  background: #e0ffe0;
+  color: #080;
+  padding: .5rem;
+  margin-bottom: .75rem;
+  border-radius: 4px;
+  font-size: .9rem;
+}
+
+/* ===== Links ===== */
+.link {
+  text-align: center;
+  margin-top: .5rem;
+  font-size: .9rem;
+}
+.link a {
+  color: #334EAC;
+  text-decoration: none;
+}
+.link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Homepage ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 1.5rem;
+}
+.header a {
+  padding: .5rem 1rem;
+  background: #334EAC;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background .2s;
+}
+.header a:hover {
+  background: #2a3e99;
+}
