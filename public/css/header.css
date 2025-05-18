@@ -5,8 +5,7 @@
     padding: 0;
 }
 
-/* Header utama */
-header {
+.main-header {
     background-color: #0B1E4F;
     width: 100%;
     padding: 1rem 1.5rem;
@@ -15,29 +14,34 @@ header {
     justify-content: space-between;
 }
 
-/* Logo bundar kiri */
-header .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 9999px;
+/* === Logo kiri bundar dengan gambar di dalam === */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-circle {
+    width: 55px;
+    height: 55px;
     background-color: white;
+    border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header .logo img {
-    width: 24px;
-    height: 24px;
+.logo-circle img {
+    width: 28px;
+    height: 28px;
 }
 
-/* Menu navigasi tengah */
-header nav {
+/* === Navigasi tengah === */
+.nav-menu {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
-header nav a {
+.nav-menu a {
     color: white;
     font-weight: 600;
     font-size: 0.875rem;
@@ -45,25 +49,31 @@ header nav a {
     letter-spacing: 1px;
 }
 
-header nav a:hover {
+/* .nav-menu a:hover {
     text-decoration: underline;
-}
+} */
 
-/* Bagian profil dan hamburger kanan */
-header .header-right {
+/* === Profil dan Hamburger === */
+.header-right {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-header .header-right img {
-    width: 32px;
-    height: 32px;
-    border-radius: 9999px;
+.profile-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-header .header-right button {
+.menu-button {
     background: none;
     border: none;
     color: white;
