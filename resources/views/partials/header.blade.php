@@ -2,7 +2,7 @@
   <div class="header-container">
     <!-- Logo -->
     <a href="{{ url('/') }}" class="logo">
-      <img src="{{ asset('img/logo-lexica.svg') }}" alt="Logo Lexica">
+      <img src="{{ asset('img/logo-lexica.png') }}" alt="Logo Lexica">
     </a>
 
     <!-- Navigasi Tengah -->
