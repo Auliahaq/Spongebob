@@ -2,7 +2,7 @@
     <!-- Logo bundar kiri -->
     <div class="logo-container">
         <div class="logo-circle">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo">
+            <img src="{{ asset('img/frame.png') }}" alt="Logo">
         </div>
     </div>
 
