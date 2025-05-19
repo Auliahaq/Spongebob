@@ -33,7 +33,7 @@
             <div class="highlight-container">
             <img src="{{ asset($highlightArticle->gambar) }}" alt="{{ $highlightArticle->judul }}" class="highlight-image" />
             <div class="highlight-content">
-                <span class="highlight-meta">Terbaru · {{ $highlightArticle->tingkatan }}</span>
+                <span class="highlight-meta">Terbaru · {{ $highlightArticle->kategori }}</span>
                 <h3 class="highlight-title">{{ $highlightArticle->judul }}</h3>
                 <p class="highlight-desc">{{ $highlightArticle->isi }}</p>
             </div>
@@ -51,7 +51,7 @@
             <div class="card-header">
                 <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" class="card-image" />
                 <div class="card-text">
-                <span class="card-tag">{{ $article->tingkatan }}</span>
+                <span class="card-tag">{{ $article->kategori }}</span>
                 <h4 class="card-title">{{ $article->judul }}</h4>
                 </div>
             </div>

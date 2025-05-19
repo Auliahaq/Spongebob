@@ -16,11 +16,11 @@
 
     if ($article) {
         $title = $article->judul;
-        $author = $article->author;
+        $author = $article->penulis;
         $image = $article->gambar;
-        $lanjutan = $article->lanjutan_content;
-        $menengah = $article->menengah_content;
-        $pemula = $article->pemula_content;
+        $lanjutan = $article->content_sulit;
+        $menengah = $article->content_sedang;
+        $pemula = $article->content_mudah;
     } else {
         $title = "Judul Default";
         $author = "Penulis Default";
@@ -36,9 +36,9 @@
 <div class="article-header">
     <h2 class="article-title">{{ $title }}</h2>
     <div class="article-tools">
-        <div class="tool"><img src="{{ asset('images/save-icon.png') }}" alt="Simpan"><span>SIMPAN</span></div>
-        <div class="tool"><img src="{{ asset('images/collection-icon.png') }}" alt="Koleksi"><span>KOLEKSI</span></div>
-        <div class="tool"><img src="{{ asset('images/share-icon.png') }}" alt="Bagikan"><span>BAGIKAN</span></div>
+        <div class="tool"><img src="{{ asset('img/save-icon.png') }}" alt="Simpan"><span>SIMPAN</span></div>
+        <div class="tool"><img src="{{ asset('img/collection-icon.png') }}" alt="Koleksi"><span>KOLEKSI</span></div>
+        <div class="tool"><img src="{{ asset('img/share-icon.png') }}" alt="Bagikan"><span>BAGIKAN</span></div>
     </div>
 </div>
 
