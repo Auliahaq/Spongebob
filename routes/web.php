@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FriendController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,6 +17,9 @@ Route::get('/performa', function () {
 Route::get('/teman', function () {
     return view('pages.teman'); // ← sesuai folder dan nama file
 });
+Route::get('/teman', [FriendController::class, 'index'])->name('teman.index');
+Route::post('/teman', [FriendController::class, 'store'])->name('teman.store');
+Route::delete('/teman/{name}', [FriendController::class, 'destroy'])->name('teman.destroy');
 
 Route::get('/tentang', function () {
     return view('pages.tentang'); // ← sesuai folder dan nama file
