@@ -17,6 +17,7 @@ use App\Http\Controllers\{
 Route::get('/home',         [HomeController::class, 'index'])->name('home');
 Route::get('/performa', [PerformaController::class, 'index'])->name('performa');
 Route::get('/tentang',  [TentangController::class, 'index'])->name('tentang');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // 🔹 Artikel
 Route::get('/artikel',           [ArtikelController::class, 'index'])->name('artikel.index');
