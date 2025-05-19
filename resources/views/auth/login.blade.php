@@ -20,6 +20,9 @@
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
   </form>
+  <div class="text-center mt-2">
+    <a href="{{ route('password.request') }}">Lupa password?</a>
+  </div>
 
   <div class="link">
     Belum punya akun?
