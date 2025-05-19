@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\KoleksiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +29,11 @@ Route::get('/tentang', function () {
 Route::get('/artikel-lanjutan', function () {
     return view('pages.artikel-lanjutan'); // ← sesuai folder dan nama file
 });
+
+Route::get('/koleksi', function () {
+    return view('pages.koleksi'); // ← sesuai folder dan nama file
+});
+Route::get('/koleksi', [KoleksiController::class, 'index']);
+Route::post('/koleksi', [KoleksiController::class, 'store'])->name('koleksi.store');
+Route::delete('/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('koleksi.destroy');
+

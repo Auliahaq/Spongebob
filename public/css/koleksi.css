@@ -1,0 +1,74 @@
+.koleksi-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.koleksi-search input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.koleksi-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.koleksi-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+}
+
+.koleksi-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.koleksi-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.koleksi-author,
+.koleksi-article-count {
+    font-size: 14px;
+    color: #555;
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.koleksi-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.koleksi-form button {
+    padding: 10px;
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
