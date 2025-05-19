@@ -6,7 +6,10 @@
 
         <!-- Form Pencarian Koleksi -->
         <div class="koleksi-search">
-            <input type="text" placeholder="Cari Nama Koleksi" />
+            <form action="{{ route('koleksi.index') }}" method="GET">
+                <input type="text" name="search" placeholder="Cari Nama Koleksi" value="{{ request()->get('search') }}" />
+                <button type="submit">Cari</button>
+            </form>
         </div>
 
         <!-- Daftar Koleksi -->
@@ -38,10 +41,9 @@
                 <input type="text" name="name" placeholder="Nama Koleksi" required>
                 <input type="text" name="author" placeholder="Penulis" required>
                 <input type="number" name="article_count" placeholder="Jumlah Artikel" required>
-                <input type="file" name="avatar" accept="img/*"> <!-- Input file untuk gambar -->
+                <input type="file" name="avatar" accept="image/*"> <!-- Input file untuk gambar -->
                 <button type="submit" class="btn-submit">Tambah Koleksi</button>
             </form>
-
         </div>
     </div>
 
@@ -53,12 +55,21 @@
             padding: 20px;
         }
 
-        .koleksi-search input {
-            width: 100%;
+        .koleksi-search form input {
+            width: 80%;
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
+        }
+
+        .koleksi-search form button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .koleksi-list {
