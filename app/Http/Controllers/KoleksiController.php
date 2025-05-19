@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 // app/Http/Controllers/KoleksiController.php
 namespace App\Http\Controllers;
@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 class KoleksiController extends Controller
 {
     // Menampilkan daftar koleksi
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil semua data koleksi dari database
-        $koleksi = Koleksi::all();
+        // Cek apakah ada query pencarian
+        $query = Koleksi::query();
+
+        // Jika ada parameter pencarian 'search', filter berdasarkan nama koleksi
+        if ($request->has('search') && $request->search) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Ambil data koleksi sesuai query
+        $koleksi = $query->get();
         
         // Mengembalikan view koleksi dengan data koleksi
         return view('pages.koleksi', compact('koleksi')); // Pastikan nama view sesuai dengan file koleksi.blade.php
