@@ -1,0 +1,217 @@
+
+html, body {
+  overflow-x: hidden;
+}
+
+.performa-membacaku {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  position: relative;
+  background-color: var(--white);
+  width: 100%;
+  /* max-width: 1300px; */
+}
+
+.performa-membacaku .frame {
+  align-self: stretch;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color: #F2F2F2;
+  flex-grow: 1;
+}
+
+.performa-membacaku .bawah {
+  position: absolute;
+  width: 3000px;
+  height: 282px;
+  top: 1000px;
+  left: -280px;
+  background-color: #d0e3ff;
+}
+
+.performa-membacaku .text-wrapper-2 {
+  position: absolute;
+  width: 1120px;
+  top: 100px;
+  left: 72px;
+  /* margin: 100px auto 0 auto;
+  width: fit-content; */
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.performa-membacaku .text-wrapper-3 {
+  position: absolute;
+  width: 720px;
+  top: 860px;
+  left: 268px;
+  /* margin: 100px auto 0 auto;
+  width: fit-content; */
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.performa-membacaku .overlap-7 {
+  position: absolute;
+  width: 1340px;
+  height: auto;
+  top: 1100px;
+  left: 200px;
+}
+
+.performa-membacaku .reads-based-on-diff {
+  top: 490px;
+  left: 200px;
+  position: absolute;
+  width: 475px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 27px;
+  text-align: center;
+  letter-spacing: 2.70px;
+  line-height: normal;
+}
+
+.performa-membacaku .reads-based-on {
+  top: -110px;
+  left: 200px;
+  position: absolute;
+  width: 475px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 27px;
+  text-align: center;
+  letter-spacing: 2.70px;
+  line-height: normal;
+}
+
+.performa-membacaku .box-content {
+  position: relative;
+  width: 962px;
+  height: 114px;
+  top: 51px;
+  left: 212px;
+}
+
+.performa-membacaku .siapkah-anda-untuk {
+  position: absolute;
+  width: 958px;
+  top: 0;
+  left: 0;
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.performa-membacaku .p {
+  position: absolute;
+  width: 530px;
+  top: 67px;
+  left: 234px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: -233px 430px 30px 236px;
+  background: transparent;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+}
+
+.container-bacaan {
+  max-width: 1055px;
+  margin: 200px 0px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: hidden;
+}
+
+.bacaan-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  border: 1px solid #d0d0d0;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ikon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.ellipse-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.ikon-atas {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.deskripsi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.judul {
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.jumlah {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000;
+}
