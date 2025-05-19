@@ -185,7 +185,7 @@
   <h1 class="title">Daftar Teman</h1>
 
   <!-- Form tambah teman -->
-  <form class="form-header" action="{{ route('teman.store') }}" method="POST" novalidate>
+  <form class="form-header" action="{{ route('teman.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <input type="text" name="name" placeholder="Nama Teman" required autocomplete="off" />
     <input type="email" name="email" placeholder="Email Teman" required autocomplete="off" />

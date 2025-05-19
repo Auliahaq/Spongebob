@@ -33,6 +33,22 @@ Route::delete('/koleksi/{id}',   [KoleksiController::class, 'destroy'])->name('k
 Route::get('/teman',             [FriendController::class, 'index'])->name('teman.index');
 Route::post('/teman',            [FriendController::class, 'store'])->name('teman.store');
 Route::delete('/teman/{name}',   [FriendController::class, 'destroy'])->name('teman.destroy');
+Route::get('/teman', [FriendController::class, 'index'])->name('teman.index');
+Route::post('/teman', [FriendController::class, 'store'])->name('teman.store');
+Route::delete('/teman/{name}', [FriendController::class, 'destroy'])->name('teman.destroy');
+
+// 🔹 Halaman Statis (jika tidak lewat controller)
+Route::view('/tentang', 'pages.tentang');
+Route::view('/teman-static', 'pages.teman'); // hanya jika diperlukan secara statis
+
+Route::get('/artikel-lanjutan', function () {
+    return view('pages.artikel-lanjutan'); // ← sesuai folder dan nama file
+});
+
+
+Route::get('/koleksi', [KoleksiController::class, 'index'])->name('koleksi.index');
+Route::post('/koleksi', [KoleksiController::class, 'store'])->name('koleksi.store');
+Route::delete('/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('koleksi.destroy');
 
 // 🔹 Autentikasi
 Route::get('/login',     [AuthController::class, 'showLogin'])->name('login');
