@@ -189,7 +189,7 @@
     @csrf
     <input type="text" name="name" placeholder="Nama Teman" required autocomplete="off" />
     <input type="email" name="email" placeholder="Email Teman" required autocomplete="off" />
-    <input type="url" name="avatar" placeholder="URL Avatar (opsional)" autocomplete="off" />
+    <input type="file" name="avatar" accept="img/*"> <!-- Input untuk gambar avatar -->
     <button type="submit" class="btn-add" title="Tambah Teman">+</button>
   </form>
 
@@ -198,11 +198,7 @@
     @forelse ($friends as $friend)
       <li class="friend-item">
         <div class="friend-info">
-          <img
-            src="{{ $friend->avatar ?: asset('img/avatar1.jpg') }}"
-            alt="Avatar {{ $friend->name }}"
-            class="avatar"
-          />
+          <img src="{{ asset('img/teman/' . $friend->avatar) }}" alt="Avatar" class="avatar">
           <div class="friend-text">
             <p class="name">{{ $friend->name }}</p>
             <p class="email">{{ $friend->email }}</p>
