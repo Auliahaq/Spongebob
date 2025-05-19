@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
 
 class AuthController extends Controller
 {
@@ -41,4 +44,67 @@ class AuthController extends Controller
 
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login.');
     }
+
+        public function showForgotPassword()
+    {
+    return view('auth.forgot-password');
+    }
+
+    public function showForgot()
+    {
+    return view('auth.forgot-password');
+    }
+
+
+    public function showResetForm($token)
+    {
+    return view('auth.reset-password', ['token' => $token]);
+    }
+    public function resetPassword(Request $request)
+    {
+    $request->validate([
+        'email' => 'required|email|exists:users,email',
+        'password' => 'required|min:6|confirmed',
+        'token' => 'required'
+    ]);
+
+    // Cek token valid
+    $reset = DB::table('password_resets')
+        ->where('email', $request->email)
+        ->where('token', $request->token)
+        ->first();
+
+    if (!$reset) {
+        return back()->withErrors(['email' => 'Token tidak valid atau sudah kadaluarsa.']);
+    }
+
+    // Update password
+    DB::table('users')->where('email', $request->email)
+        ->update(['password' => Hash::make($request->password)]);
+
+    // Hapus token
+    DB::table('password_resets')->where('email', $request->email)->delete();
+
+    return redirect('/login')->with('status', 'Password berhasil diubah. Silakan login.');
+    }
+
+    public function sendResetLink(Request $request)
+    {
+    $request->validate([
+        'email' => 'required|email|exists:users,email'
+    ]);
+
+    $token = Str::random(60);
+
+    // Simpan ke tabel password_resets
+    DB::table('password_resets')->updateOrInsert(
+        ['email' => $request->email],
+        ['token' => $token, 'created_at' => now()]
+    );
+
+    $link = url("/reset-password/$token");
+
+    return back()->with('status', "Link reset password: $link");
+    }
+
 }

@@ -8,8 +8,8 @@
   </div>
 
   <nav class="sidebar-menu">
-    <a href="#" class="sidebar-link">Teman</a>
-    <a href="#" class="sidebar-link">Koleksi</a>
+    <a href="{{ url('/teman') }}" class="sidebar-link">Teman</a>
+    <a href="{{ url('/koleksi') }}" class="sidebar-link">Koleksi</a>
     <a href="{{ url('/performa') }}" class="sidebar-link">Performaku</a>
     <a href="#" class="sidebar-link logout">Keluar</a>
   </nav>
