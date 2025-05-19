@@ -39,31 +39,32 @@
   </div>
 </section>
 
+<!-- Artikel Section -->
 <section class="artikel">
-  <h2>ARTIKEL TERBARU</h2>
+  <h3>ARTIKEL TERBARU</h3>
   <div class="artikel-list">
-    <div class="artikel-item">
-      <img src="{{ asset('img/tech.jpg') }}" alt="Teknologi">
-      <h3>TEKNOLOGI</h3>
-      <p>Apakah processor laptop MSI cukup untuk mahasiswa Teknik Informatika?</p>
-    </div>
-    <div class="artikel-item">
-      <img src="{{ asset('img/seni.jpg') }}" alt="Seni">
-      <h3>SENI</h3>
-      <p>Karya van Gogh mana yang disukai masyarakat umum? apakah Starry Night?</p>
-    </div>
-    <div class="artikel-item">
-      <img src="{{ asset('img/health.jpg') }}" alt="Kesehatan">
-      <h3>KESEHATAN</h3>
-      <p>Apa yang terjadi jika gigi kita berlubang sangat parah?</p>
-    </div>
+    @foreach ($artikels as $artikel)
+  <div class="artikel-item">
+    <img src="{{ asset($artikel->gambar ?? 'img/default.jpg') }}" alt="{{ $artikel->judul }}">
+
+    <h4>
+      <a href="{{ route('artikel.show', $artikel->id) }}" class="artikel-link">
+        {{ strtoupper(Str::words($artikel->judul, 2, '...')) }}
+      </a>
+    </h4>
+
+    <p>{{ Str::limit($artikel->content_mudah, 80, '...') }}</p>
+  </div>
+@endforeach
+
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta">
-  <h3>SIAPKAH ANDA UNTUK MEMBACA LEBIH BANYAK</h3>
-  <p>Rasakan sensasi membaca dalam semesta kata yang membuka pikiran, menghangatkan hati, dan membawamu ke tempat-tempat yang hanya bisa</p>
+  <h4>SIAPKAH ANDA UNTUK MEMBACA LEBIH BANYAK</h4>
+  <p>Rasakan sensasi membaca dalam semesta kata yang membuka pikiran...</p>
   <button>PORTFOLIO</button>
-  <p class="quote">Aku jatuh cinta pada huruf, karena mereka tak pernah bohong.</p>
+  <p class="footer-quote">Aku jatuh cinta pada huruf, karena mereka tak pernah bohong.</p>
 </section>
 @endsection

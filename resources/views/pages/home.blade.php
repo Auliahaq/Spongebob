@@ -43,21 +43,20 @@
 <section class="artikel">
   <h3>ARTIKEL TERBARU</h3>
   <div class="artikel-list">
-    <div class="artikel-item">
-      <img src="{{ asset('img/artikel1.jpg') }}" alt="Mainan">
-      <h4>MAINAN</h4>
-      <p>Apakah anak umur 19 tahun bisa menyukai Sylvanian Families?</p>
-    </div>
-    <div class="artikel-item">
-      <img src="{{ asset('img/artikel2.jpg') }}" alt="Musik">
-      <h4>MUSIK</h4>
-      <p>Mahasiswa FILKOM banyak yang menyukai lagu NDX karena seru</p>
-    </div>
-    <div class="artikel-item">
-      <img src="{{ asset('img/artikel3.jpg') }}" alt="Psikologi">
-      <h4>PSIKOLOGI</h4>
-      <p>Dikalangan remaja ini apakah masalah mental marak terjadi?</p>
-    </div>
+    @foreach ($artikels as $artikel)
+  <div class="artikel-item">
+    <img src="{{ asset($artikel->gambar ?? 'img/default.jpg') }}" alt="{{ $artikel->judul }}">
+
+    <h4>
+      <a href="{{ route('artikel.show', $artikel->id) }}" class="artikel-link">
+        {{ strtoupper(Str::words($artikel->judul, 2, '...')) }}
+      </a>
+    </h4>
+
+    <p>{{ Str::limit($artikel->content_mudah, 80, '...') }}</p>
+  </div>
+@endforeach
+
   </div>
 </section>
 

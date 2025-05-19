@@ -125,6 +125,16 @@ main {
   margin-bottom: 15px;
 }
 
+.artikel-link {
+  color: #000; /* atau warna lain sesuai tema */
+  text-decoration: none;
+}
+
+.artikel-link:hover {
+  color: #0B1E4F; /* warna saat hover */
+  text-decoration: underline;
+}
+
 /* CTA */
 .cta {
   background: #052b73;

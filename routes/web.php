@@ -1,17 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PerformaController;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TentangController;
 
 // Halaman Utama
 Route::get('/', fn() => view('welcome'));
-Route::get('/home', fn() => view('pages.home'));
+Route::get('/home', [HomeController::class, 'index']);
 Route::get('/performa', [PerformaController::class, 'index']);
+Route::get('/tentang', [TentangController::class, 'index']);
 Route::get('/teman', fn() => view('pages.teman'));
-Route::get('/tentang', fn() => view('pages.tentang'));
 Route::get('/artikel-lanjutan', fn() => view('pages.artikel-lanjutan'));
+
+// Halaman Artikel
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/artikel/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('artikel.show');
 
 // Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
