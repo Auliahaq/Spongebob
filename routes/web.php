@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerformaController;
 use App\Http\Controllers\TentangController;
@@ -34,6 +35,17 @@ Route::delete('/teman/{name}', [FriendController::class, 'destroy'])->name('tema
 // 🔹 Halaman Statis (jika tidak lewat controller)
 Route::view('/tentang', 'pages.tentang');
 Route::view('/teman-static', 'pages.teman'); // hanya jika diperlukan secara statis
+
+Route::get('/artikel-lanjutan', function () {
+    return view('pages.artikel-lanjutan'); // ← sesuai folder dan nama file
+});
+
+Route::get('/koleksi', function () {
+    return view('pages.koleksi'); // ← sesuai folder dan nama file
+});
+Route::get('/koleksi', [KoleksiController::class, 'index']);
+Route::post('/koleksi', [KoleksiController::class, 'store'])->name('koleksi.store');
+Route::delete('/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('koleksi.destroy');
 
 // 🔹 Autentikasi
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
