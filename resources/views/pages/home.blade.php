@@ -2,11 +2,8 @@
 
 @section('title', 'Beranda — Lexica')
 
-@push('styles')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
-@endpush
-
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
 <!-- Hero Section -->
 <div class="hero">

@@ -4,10 +4,8 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f2eb;
-  color: #1b1b1b;
+main {
+  font-family: 'Poppins', sans-serif;
 }
 
 /* HERO */
