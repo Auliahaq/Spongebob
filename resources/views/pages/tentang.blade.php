@@ -11,10 +11,11 @@
 <section class="hero">
   <h1>TENTANG <br> KAMI</h1>
   <p>
-    Selamat datang di [Nama Website], tempat di mana inovasi bertemu dengan kenyamanan! Kami adalah tim yang berdedikasi
-    untuk memberikan solusi terbaik di bidang [industri atau layanan yang Anda tawarkan, misalnya: desain grafis,
-    pendidikan online, teknologi, dll.]. Kami percaya bahwa setiap individu atau perusahaan memiliki potensi untuk
-    berkembang dengan menggunakan alat dan pengetahuan yang tepat.
+
+    Selamat datang di Lexica, ruang di mana literasi menjadi jembatan menuju masa depan yang lebih cerah. Kami adalah tim yang berkomitmen untuk membuka akses pengetahuan dan memberdayakan setiap individu melalui bacaan yang bermakna.
+    Di Lexica, kami percaya bahwa literasi bukan sekadar kemampuan membaca dan menulis, tapi kunci untuk memahami, berpikir kritis, dan berani bersuara. Dengan pendekatan yang inklusif dan konten yang relevan, kami hadir untuk menemani perjalanan literasi Anda — kapan saja, di mana saja.
+
+
   </p>
 </section>
 
@@ -32,9 +33,6 @@
           Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
         </p>
         <div class="sosmed">
-          <span>📘</span>
-          <span>🐦</span>
-          <span>📷</span>
         </div>
       </div>
     @endforeach
