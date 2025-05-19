@@ -117,7 +117,7 @@ body {
 .card-link {
   text-decoration: none;
   color: inherit;
-  transition: box-shadow 0.3s ease;
+  display: block;
 }
 
 .card-link:hover {
@@ -126,6 +126,7 @@ body {
 
 .card-box {
   background-color: #fff;
+  min-height: 250px;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -222,6 +223,7 @@ body {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
 }
 
 .latest-image {
@@ -232,6 +234,7 @@ body {
 
 .latest-content {
   padding: 1rem;
+  text-align: center;
 }
 
 .latest-title {
@@ -253,8 +256,4 @@ body {
   transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
-}
-
-.latest-button:hover {
-  background-color: #4a56a0;
 }

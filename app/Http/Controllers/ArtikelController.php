@@ -14,4 +14,16 @@ class ArtikelController extends Controller
         $latestArticles = DB::table('artikel')->orderBy('id', 'desc')->offset(5)->limit(3)->get();
         return view('pages.artikel', compact('highlightArticle', 'cardsArticles', 'latestArticles'));
     }
+
+    public function show(Request $request)
+    {
+        $id = $request->get('id', 1);
+        $tab = $request->get('tab', 'lanjutan');
+        $article = DB::table('artikel')->find($id);
+
+        return view('artikel.detail', [
+            'article' => $article,
+            'active_tab' => $tab
+        ]);
+    }
 }

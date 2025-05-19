@@ -28,42 +28,38 @@
 
   <!-- Highlight Section -->
   @if($highlightArticle)
-  <section class="highlight-section">
-    <div class="highlight-container">
-      <img src="{{ asset($highlightArticle->gambar) }}" alt="{{ $highlightArticle->judul }}" class="highlight-image" />
-      <div class="highlight-content">
-        <span class="highlight-meta">Terbaru · {{ $highlightArticle->tingkatan }}</span>
-        <h3 class="highlight-title">{{ $highlightArticle->judul }}</h3>
-        <p class="highlight-desc">{{ \Illuminate\Support\Str::limit($highlightArticle->isi, 150) }}</p>
-      </div>
-    </div>
-  </section>
+    <section class="highlight-section">
+        <a href="{{ route('artikel.lanjutan', ['id' => $highlightArticle->id]) }}" class="highlight-link">
+            <div class="highlight-container">
+            <img src="{{ asset($highlightArticle->gambar) }}" alt="{{ $highlightArticle->judul }}" class="highlight-image" />
+            <div class="highlight-content">
+                <span class="highlight-meta">Terbaru · {{ $highlightArticle->tingkatan }}</span>
+                <h3 class="highlight-title">{{ $highlightArticle->judul }}</h3>
+                <p class="highlight-desc">{{ $highlightArticle->isi }}</p>
+            </div>
+            </div>
+        </a>
+    </section>
   @endif
 
   <!-- Card Section -->
   <section class="cards-section">
     <div class="cards-grid">
       @foreach ($cardsArticles as $index => $article)
-        @if ($index === 0)
         <a href="{{ route('artikel.lanjutan', ['id' => $article->id]) }}" class="card-link">
-        @endif
-
-        <div class="card-box">
-          <div class="card-header">
-            <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" class="card-image" />
-            <div class="card-text">
-              <span class="card-tag">{{ $article->tingkatan }}</span>
-              <h4 class="card-title">{{ $article->judul }}</h4>
+            <div class="card-box">
+            <div class="card-header">
+                <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" class="card-image" />
+                <div class="card-text">
+                <span class="card-tag">{{ $article->tingkatan }}</span>
+                <h4 class="card-title">{{ $article->judul }}</h4>
+                </div>
             </div>
-          </div>
-          <div class="card-body">
-            <p class="card-desc">{{ \Illuminate\Support\Str::limit($article->isi, 200) }}</p>
-          </div>
-        </div>
-
-        @if ($index === 0)
+            <div class="card-body">
+                <p class="card-desc">{{ \Illuminate\Support\Str::limit($article->isi, 500) }}</p>
+            </div>
+            </div>
         </a>
-        @endif
       @endforeach
     </div>
   </section>
@@ -73,14 +69,16 @@
     <div class="latest-container">
       <h2 class="latest-heading">ARTIKEL TERBARU</h2>
       <div class="latest-grid">
-        @foreach ($latestArticles as $article)
-        <div class="latest-card">
-          <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" class="latest-image" />
-          <div class="latest-content">
-            <h4 class="latest-title">{{ $article->judul }}</h4>
-          </div>
-        </div>
-        @endforeach
+      @foreach ($latestArticles as $article)
+        <a href="{{ route('artikel.lanjutan', ['id' => $article->id]) }}" class="latest-link">
+            <div class="latest-card">
+            <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" class="latest-image" />
+            <div class="latest-content">
+                <h4 class="latest-title">{{ $article->judul }}</h4>
+            </div>
+            </div>
+        </a>
+      @endforeach
       </div>
       <div class="latest-button-container">
         <button class="latest-button">PORTFOLIO</button>
