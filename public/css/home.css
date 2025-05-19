@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f7f2eb;
+  color: #1b1b1b;
+}
+
+/* Hero */
+.hero {
+  background: #0B1E4F;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.intro h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hero-img {
+  max-width: 250px;
+  margin: 20px 0;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Literasi */
+.literasi {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.literasi-box {
+  background: #719BE6;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 800px;
+  color: white;
+  text-align: center;
+}
+
+.literasi-box h2 {
+  text-transform: uppercase;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #1b1b1b;
+  margin-bottom: 20px;
+}
+
+.literasi-box p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Riset */
+.riset {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.riset h3 {
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.stat {
+  background: #8fbdfd;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Artikel */
+.artikel {
+  background: #0B1E4F;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.artikel h3 {
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.artikel-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.artikel-item {
+  background: white;
+  color: black;
+  width: 260px;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.artikel-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.artikel-item .caption {
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.artikel-item h4 {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+/* CTA */
+.cta {
+  background: #052B73;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta h4 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.cta p {
+  font-size: 14px;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.cta button {
+  background: white;
+  color: #052B73;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.footer-quote {
+  font-style: italic;
+  font-size: 13px;
+  margin-top: 15px;
+}
