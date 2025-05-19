@@ -3,11 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PerformaController;
+
+
 
 // Halaman Utama
 Route::get('/', fn() => view('welcome'));
 Route::get('/home', fn() => view('pages.home'));
-Route::get('/performa', fn() => view('pages.performa'));
+Route::get('/performa', [PerformaController::class, 'index']);
 Route::get('/teman', fn() => view('pages.teman'));
 Route::get('/tentang', fn() => view('pages.tentang'));
 Route::get('/artikel-lanjutan', fn() => view('pages.artikel-lanjutan'))->name('artikel.lanjutan');
