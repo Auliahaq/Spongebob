@@ -2,8 +2,11 @@
 
 @section('title', 'Tentang Kami — Lexica')
 
-@section('content')
+@push('styles')
 <link rel="stylesheet" href="{{ asset('css/tentang.css') }}">
+@endpush
+
+@section('content')
 
 <section class="hero">
   <h1>TENTANG <br> KAMI</h1>
