@@ -18,12 +18,23 @@ class FriendController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:friends,email',
-            'avatar' => 'nullable|url', // Atau bisa upload file
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk gambar avatar
         ]);
 
-        Friend::create($validated);
+        // Proses upload avatar
+    $avatar = null;
+    if ($request->hasFile('avatar')) {
+        $avatar = $request->file('avatar')->store('teman', 'public'); // Simpan gambar di public/img/teman
+    }
 
-        return redirect()->route('teman.index')->with('success', 'Teman berhasil ditambahkan!');
+    // Simpan data teman ke database
+    Friend::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'avatar' => $avatar, // Simpan nama file avatar
+    ]);
+
+    return redirect()->route('teman.index')->with('success', 'Teman berhasil ditambahkan');
     }
 
     public function destroy($name)
