@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('kategori');
-            $table->enum('tingkat_kesulitan', ['Mudah', 'Sedang', 'Sulit']);
+            $table->string('gambar')->nullable();
+            $table->string('penulis')->default('admin');
+            $table->string('isi');
+            $table->string('content_mudah');
+            $table->string('content_sedang');
+            $table->string('content_sulit');
             $table->timestamps(); // created_at & updated_at
         });
     }
