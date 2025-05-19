@@ -1,7 +1,7 @@
 <header class="main-header">
   <div class="logo-container">
     <div class="logo-circle">
-      <img src="{{ asset('img/logo.png') }}" alt="Logo">
+      <img src="{{ asset('img/Frame.png') }}" alt="Logo">
     </div>
   </div>
 
