@@ -8,13 +8,27 @@
 <div class="auth-box">
   <h2>Lupa Password</h2>
 
+  {{-- Tampilkan pesan sukses --}}
   @if (session('status'))
     <div class="success">{{ session('status') }}</div>
   @endif
 
   <form method="POST" action="{{ route('password.email') }}">
     @csrf
-    <input type="email" name="email" placeholder="Masukkan Email Anda" required>
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Masukkan Email Anda"
+      value="{{ old('email') }}"
+      required
+    >
+
+    {{-- Tampilkan pesan error untuk field email --}}
+    @error('email')
+      <div class="error">{{ $message }}</div>
+    @enderror
+
     <button type="submit">Kirim Link Reset</button>
   </form>
 

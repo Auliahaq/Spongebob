@@ -56,10 +56,22 @@ class AuthController extends Controller
     }
 
 
-    public function showResetForm($token)
-    {
-    return view('auth.reset-password', ['token' => $token]);
+    public function showResetForm(Request $request, $token)
+{
+    $email = $request->query('email');
+
+    // (Opsional) validasi token & email cocok di DB
+    $record = DB::table('password_resets')
+                ->where('email', $email)
+                ->where('token', $token)
+                ->first();
+    if (! $record) {
+        abort(404);
     }
+
+    return view('auth.reset-password', compact('token','email'));
+}
+
     public function resetPassword(Request $request)
     {
     $request->validate([
@@ -89,22 +101,29 @@ class AuthController extends Controller
     }
 
     public function sendResetLink(Request $request)
-    {
+{
     $request->validate([
-        'email' => 'required|email|exists:users,email'
+        'email' => 'required|email|exists:users,email',
     ]);
 
     $token = Str::random(60);
 
-    // Simpan ke tabel password_resets
     DB::table('password_resets')->updateOrInsert(
         ['email' => $request->email],
         ['token' => $token, 'created_at' => now()]
     );
 
-    $link = url("/reset-password/$token");
-
-    return back()->with('status', "Link reset password: $link");
+    // Redirect + kirim token & email
+    return redirect()->route('password.reset', [
+        'token' => $token,
+        'email' => $request->email,
+    ]);
+}
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
-
 }
