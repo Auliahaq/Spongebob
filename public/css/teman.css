@@ -1,200 +1,179 @@
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #E9EBEC;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
 
-#pageTeman {
-  max-width: 900px;
-  margin: 2rem auto;
-  background-color: #f9fafb; /* warna latar mirip contoh */
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
 
-#pageTeman h1 {
-  font-weight: 700;
-  font-size: 1.8rem;
-  text-align: center;
-  color: #222222;
-  margin-bottom: 1.5rem;
-}
+  /* Reset dan box sizing */
+  * {
+    box-sizing: border-box;
+  }
+  main {
+    font-family: 'Poppins', sans-serif;
+  }
+  body {
+    background-color: #f6f7fb;
+    color: #111827;
+    margin: 0;
+  }
 
-/* Form pencarian dan tombol tambah */
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  gap: 10px;
-}
+  .teman-wrapper {
+    max-width: 900px;
+    margin: 2rem auto 4rem;
+    background-color: #f6f7fb;
+    border-radius: 20px;
+    padding: 2rem 2.5rem 3rem;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.05);
+  }
 
-#friendSearch {
-  flex-grow: 1;
-  border: 1px solid #ccc;
-  border-radius: 9999px;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-#friendSearch:focus {
-  border-color: #0B1E4F;
-}
+  h1.title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #111827;
+  }
 
-/* Tombol tambah */
-.friend-add-btn {
-  background-color: #0B1E4F;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 1.3rem;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.friend-add-btn:hover {
-  background-color: #0a193f;
-}
+  /* Header form area */
+  .form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 
-/* Tombol dropdown jumlah teman */
-.friend-dropdown-btn {
-  background-color: #0B1E4F;
-  color: white;
-  border-radius: 20px;
-  padding: 0 12px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  user-select: none;
-}
+  .form-header input[type="text"],
+  .form-header input[type="email"],
+  .form-header input[type="url"] {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    border: 1.5px solid #d1d5db;
+    font-size: 0.9rem;
+    color: #374151;
+    outline-offset: 3px;
+    transition: border-color 0.3s ease;
+  }
 
-/* Dropdown container */
-.dropdown {
-  position: absolute;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  width: 180px;
-  font-size: 0.9rem;
-  color: #4B5563;
-  z-index: 100;
-}
+  .form-header input[type="text"]:focus,
+  .form-header input[type="email"]:focus,
+  .form-header input[type="url"]:focus {
+    border-color: #3b82f6;
+  }
 
-/* List teman */
-.friend-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-height: 400px;
-  overflow-y: auto;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  background-color: white;
-  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-}
+  .btn-add {
+    width: 40px;
+    height: 40px;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
 
-.friend-item {
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s ease;
-}
-.friend-item:hover {
-  background-color: #f3f4f6;
-}
+  .btn-add:hover {
+    background-color: #2563eb;
+  }
 
-/* Avatar */
-.friend-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
+  /* List teman */
+  ul.friend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-/* Info teman */
-.friend-info {
-  margin-left: 12px;
-  flex-grow: 1;
-  overflow: hidden;
-}
+  li.friend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.05);
+  }
 
-.friend-name {
-  font-weight: 600;
-  color: #111827;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1rem;
-}
+  /* Bagian info teman */
+  .friend-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.friend-email {
-  font-size: 0.85rem;
-  color: #6b7280;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 2px;
-}
+  .friend-info img.avatar {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+  }
 
-/* Tombol hapus */
-.btn-hapus {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #9ca3af;
-  font-size: 1.25rem;
-  transition: color 0.3s ease;
-  padding: 0 8px;
-  flex-shrink: 0;
-}
-.btn-hapus:hover {
-  color: #ef4444;
-}
+  .friend-text {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* Footer */
-.teman-footer {
-  margin-top: 2.5rem;
-  padding: 2rem;
-  background-color: #0B1E4F;
-  color: white;
-  border-radius: 12px;
-  text-align: center;
-}
+  .friend-text .name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 0.2rem;
+  }
 
-.teman-footer-title {
-  font-weight: 700;
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-}
+  .friend-text .email {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
 
-.teman-footer-text {
-  font-style: italic;
-  font-size: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.4;
-}
+  /* Tombol hapus */
+  form.delete-form {
+    margin: 0;
+  }
 
-/* Scrollbar untuk friend list (opsional) */
-.friend-list::-webkit-scrollbar {
-  width: 8px;
-}
-.friend-list::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.15);
-  border-radius: 20px;
-}
+  button.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #6b7280;
+    transition: color 0.2s ease;
+  }
+
+  button.btn-delete:hover {
+    color: #ef4444;
+  }
+
+  /* Footer */
+  .footer-readmore {
+    background-color: #112a66;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem 3rem;
+    border-radius: 0 0 20px 20px;
+    margin-top: 2rem;
+  }
+
+  .footer-readmore h2 {
+    margin: 0 0 1rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-readmore p {
+    margin: 0 0 0.7rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-readmore p:last-child {
+    font-style: italic;
+    font-weight: 600;
+  }
+  

@@ -1,15 +1,20 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Artikel;
+use Illuminate\Support\Facades\DB;
 
 class TentangController extends Controller
 {
-     public function index()
+    public function index()
     {
-        $artikels = Artikel::orderBy('created_at', 'desc')->take(3)->get();
+        // Ambil data artikel (contoh: 5 terbaru)
+        $artikels = DB::table('artikel')
+                      ->orderBy('id', 'desc')
+                      ->limit(5)
+                      ->get();
+
+        // Kirim ke view
         return view('pages.tentang', compact('artikels'));
     }
 }

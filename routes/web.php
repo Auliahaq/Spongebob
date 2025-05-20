@@ -42,11 +42,6 @@ Route::delete('/teman/{name}', [FriendController::class, 'destroy'])->name('tema
 Route::view('/tentang', 'pages.tentang');
 Route::view('/teman-static', 'pages.teman'); // hanya jika diperlukan secara statis
 
-Route::get('/artikel-lanjutan', function () {
-    return view('pages.artikel-lanjutan'); // ← sesuai folder dan nama file
-});
-
-
 Route::get('/koleksi', [KoleksiController::class, 'index'])->name('koleksi.index');
 Route::post('/koleksi', [KoleksiController::class, 'store'])->name('koleksi.store');
 Route::delete('/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('koleksi.destroy');
@@ -54,11 +49,14 @@ Route::delete('/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('kol
 // 🔹 Autentikasi
 Route::get('/',     [AuthController::class, 'showLogin'])->name('login');
 Route::post('/',    [AuthController::class, 'login']);
+Route::get('/login',     [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login',    [AuthController::class, 'login']);
 Route::get('/forgot-password', [AuthController::class, 'showForgot'])->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
 Route::get('/reset-password/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update');
+
+
 Route::get('/register',  [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/logout',   fn() => Auth::logout() && redirect('/login'))
-                        ->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
