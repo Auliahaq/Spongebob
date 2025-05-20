@@ -16,7 +16,6 @@ Route::get('/performa', [PerformaController::class, 'index']);
 Route::get('/tentang', [TentangController::class, 'index']);
 Route::get('/teman', fn() => view('pages.teman'));
 Route::get('/artikel-lanjutan', fn() => view('pages.artikel-lanjutan'));
-Route::get('/tentang', fn() => view('pages.tentang'));
 Route::get('/artikel-lanjutan', fn() => view('pages.artikel-lanjutan'))->name('artikel.lanjutan');
 Route::get('/artikel', fn() => view('pages.artikel'));
 // Halaman Artikel
