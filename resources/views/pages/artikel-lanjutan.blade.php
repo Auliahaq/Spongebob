@@ -36,8 +36,18 @@
 <div class="article-header">
     <h2 class="article-title">{{ $title }}</h2>
     <div class="article-tools">
-        <div class="tool"><img src="{{ asset('img/collection-icon.png') }}" alt="Koleksi"><span>KOLEKSI</span></div>
-        <div class="tool"><img src="{{ asset('img/share-icon.png') }}" alt="Bagikan"><span>BAGIKAN</span></div>
+        <div class="tool">
+            <div class="tool-icon">
+                <img src="{{ asset('img/koleksi.png') }}" alt="Koleksi">
+            </div>
+            <span>KOLEKSI</span>
+        </div>
+        <div class="tool">
+            <div class="tool-icon">
+                <img src="{{ asset('img/share.webp') }}" alt="Bagikan">
+            </div>
+            <span>BAGIKAN</span>
+        </div>
     </div>
 </div>
 
@@ -64,26 +74,26 @@
         <div id="pemula" class="tab-content {{ $active_tab == 'pemula' ? 'active' : '' }}">
             <p>{!! $pemula !!}</p>
         </div>
+
     </div>
+        <div class="selesai-baca-container">
+        <button class="selesai-baca-btn">Selesai Membaca</button>
+    </div>
+
 </main>
 
-<div class="scroll-buttons">
-  <button id="scroll-up" title="Kembali ke Atas">
-    <img src="{{ asset('images/arrow-up.png') }}" alt="Atas">
+<div class="right-buttons">
+  <button id="AI" title="AI">
+    <img src="{{ asset('img/headphone.png') }}" alt="AI">
   </button>
-  <button id="scroll-down" title="Ke Bawah Artikel">
-    <img src="{{ asset('images/arrow-down.png') }}" alt="Bawah">
+  <button id="scroll-up" title="Atas">
+    <img src="{{ asset('img/arrow.jpg') }}" alt="Atas">
   </button>
 </div>
 
 <script>
-    document.querySelectorAll('.tab-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const target = button.getAttribute('data-target');
-            const url = new URL(window.location.href);
-            url.searchParams.set('tab', target);
-            window.location.href = url.toString();
-        });
+    document.getElementById("scroll-up").addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 @endsection
