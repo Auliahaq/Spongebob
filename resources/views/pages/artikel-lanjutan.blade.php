@@ -36,7 +36,6 @@
 <div class="article-header">
     <h2 class="article-title">{{ $title }}</h2>
     <div class="article-tools">
-        <div class="tool"><img src="{{ asset('img/save-icon.png') }}" alt="Simpan"><span>SIMPAN</span></div>
         <div class="tool"><img src="{{ asset('img/collection-icon.png') }}" alt="Koleksi"><span>KOLEKSI</span></div>
         <div class="tool"><img src="{{ asset('img/share-icon.png') }}" alt="Bagikan"><span>BAGIKAN</span></div>
     </div>
@@ -44,7 +43,7 @@
 
 <main class="article-main">
     <div class="article-intro">
-        <img src="{{ asset('images/' . $image) }}" alt="Ilustrasi artikel">
+        <img src="{{ $article->gambar }}" alt="Ilustrasi artikel">
         <p class="article-meta">{{ $author }}</p>
         <h3>Pilih Tingkatan Literasi Yang Kamu Minati</h3>
     </div>
