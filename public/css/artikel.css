@@ -1,21 +1,22 @@
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #E9EBEC;
+  background-color: #F7F2EB;
   margin: 0;
   padding: 0;
 }
 
 .hero-section {
   background-color: #0B1E4F;
-  color: white;
+  color: #F7F2EB;
   padding: 2rem;
   text-align: center;
 }
 
 .search-container input {
-  padding: 0.75rem;
+  padding: 1rem;
   width: 60%;
-  max-width: 500px;
+  max-width: 1000px;
+  min-height: 50px;
   border-radius: 9999px;
   border: none;
   margin: 1rem auto;
@@ -25,13 +26,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 3.5rem;
 }
 
 .tag-container button {
-  background-color: #ddd;
+  background-color: #c3d2f8;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 9999px;
   cursor: pointer;
 }
@@ -45,9 +46,9 @@ body {
 }
 
 .highlight-container {
-  background-color: #ffffff;
+  background-color: #F7F2EB;
   color: #2d3748;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -101,7 +102,7 @@ body {
 
 .cards-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   max-width: 72rem;
   margin: 0 auto;
   grid-template-columns: 1fr;
@@ -125,9 +126,9 @@ body {
 }
 
 .card-box {
-  background-color: #fff;
+  background-color: #7096D1;
   min-height: 250px;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
@@ -157,7 +158,7 @@ body {
 
 .card-tag {
   text-align: center;
-  background-color: #f3f4f6;
+  background-color: #eaeaea;
   color: #1f2937;
   font-size: 0.75rem;
   font-weight: 600;
@@ -178,13 +179,13 @@ body {
 
 .card-desc {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: #F7F2EB;
 }
 
 /* Latest Articles Section */
 .latest-section {
   background-color: #0B1E4F;
-  color: white;
+  color: #F7F2EB;
   padding: 2rem 1rem;
 }
 
@@ -220,7 +221,7 @@ body {
 }
 
 .latest-card {
-  background-color: #fff;
+  background-color: #F7F2EB;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -250,7 +251,7 @@ body {
 
 .latest-button {
   background-color: #5C6BC0;
-  color: white;
+  color: #F7F2EB;
   font-weight: bold;
   padding: 0.5rem 2rem;
   border-radius: 9999px;
