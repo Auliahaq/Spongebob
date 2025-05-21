@@ -22,16 +22,22 @@
   {{-- Team Section --}}
   <section class="tim">
     <h2>Kelompok Spongebob</h2>
-    <p>Masih placeholder, bisa diganti bio tiap anggota tim.</p>
-
+     <p>
+    Halo semuanya! 👋<br>
+    Kami adalah Kelompok 4 “Spongebob”.
+  </p>
+  <p>
+    Aplikasi ini kami kembangkan sebagai tugas akhir Mata Kuliah 
+    Pengembangan Aplikasi Web.
+  </p>
     <div class="cards">
       @php
-        // Jika nanti di-pass dari Controller, pindahkan array ini ke sana.
+        // Jika nanti di-pass dari Controller, pindpahkan array ini ke sana.
         $team = [
-          ['name'=>'Kaney', 'role'=>'PAW',    'img'=>'kaney.jpg',  'bio'=>'Suka pengembangan web.'],
-          ['name'=>'Aul',   'role'=>'PAW',    'img'=>'aul.jpg',    'bio'=>'Frontend enthusiast.'],
-          ['name'=>'Rania', 'role'=>'PAW',    'img'=>'rania.jpg',  'bio'=>'UX/UI designer.'],
-          ['name'=>'Aurel', 'role'=>'PAW',    'img'=>'aurel.jpg',  'bio'=>'Full-stack dev.'],
+          ['name'=>'Kaneysa Nadetta Julief', 'role'=>'',    'img'=>'kaney.jpg',  'bio'=>'235150200111067'],
+          ['name'=>'Aulia Haq',   'role'=>'',    'img'=>'aul.jpg',    'bio'=>'235150201111079'],
+          ['name'=>'Rania Putri Zayyanti', 'role'=>'',    'img'=>'rania.jpg',  'bio'=>'235150201111073'],
+          ['name'=>'Aurelia Salsabilla Yunanto Putri', 'role'=>'',    'img'=>'aurel.jpg',  'bio'=>'235150201Z111075'],
         ];
       @endphp
 

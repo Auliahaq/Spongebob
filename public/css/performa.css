@@ -3,6 +3,8 @@ html, body {
   overflow-x: hidden;
 }
 
+
+
 .performa-membacaku {
   display: flex;
   flex-direction: column;
@@ -27,7 +29,7 @@ html, body {
   position: absolute;
   width: 3000px;
   height: 282px;
-  top: 1000px;
+  top: 1750px;
   left: -280px;
   background-color: #d0e3ff;
 }
@@ -36,7 +38,7 @@ html, body {
   position: absolute;
   width: 1120px;
   top: 100px;
-  left: 72px;
+  left: 242px;
   /* margin: 100px auto 0 auto;
   width: fit-content; */
   font-family: "Poppins-Bold", Helvetica;
@@ -51,8 +53,8 @@ html, body {
 .performa-membacaku .text-wrapper-3 {
   position: absolute;
   width: 720px;
-  top: 860px;
-  left: 268px;
+  top: 660px;
+  left: 448px;
   /* margin: 100px auto 0 auto;
   width: fit-content; */
   font-family: "Poppins-Bold", Helvetica;
@@ -73,8 +75,8 @@ html, body {
 }
 
 .performa-membacaku .reads-based-on-diff {
-  top: 490px;
-  left: 200px;
+  top: 740px;
+  left: 564px;
   position: absolute;
   width: 475px;
   font-family: "Poppins-SemiBold", Helvetica;
@@ -87,8 +89,8 @@ html, body {
 }
 
 .performa-membacaku .reads-based-on {
-  top: -110px;
-  left: 200px;
+  top: 1290px;
+  left: 552px;
   position: absolute;
   width: 475px;
   font-family: "Poppins-SemiBold", Helvetica;
@@ -105,7 +107,7 @@ html, body {
   width: 962px;
   height: 114px;
   top: 51px;
-  left: 212px;
+  left: 589px;
 }
 
 .performa-membacaku .siapkah-anda-untuk {
@@ -139,10 +141,10 @@ html, body {
 .chart-wrapper {
   width: 100%;
   max-width: 400px;
-  margin: -233px 430px 30px 236px;
+  margin: 30px 448px 28px 600px;
   background: transparent;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 115px;
+  padding-bottom: 0px;
 }
 
 .chart-wrapper canvas {
@@ -153,7 +155,7 @@ html, body {
 
 .container-bacaan {
   max-width: 1055px;
-  margin: 200px 0px 60px 80px;
+  margin: 186px 0px 60px 238px;
   display: flex;
   flex-direction: column;
   gap: 16px;
