@@ -18,44 +18,43 @@ body {
 }
 
 .article-tools {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
 }
 
 .tool {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
 .tool-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .tool-icon img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
+
 .tool span {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
 }
 
 .article-main {
@@ -63,16 +62,21 @@ body {
 }
 
 .article-intro {
-  max-width: 800px;
+  max-width: 400px;
   margin: 2rem auto;
   padding: 0 1rem;
   text-align: center;
+
+  /* ** Tambahan untuk atur rasio dan potong gambar ** */
+  aspect-ratio: 16 / 9;      /* ubah ke 1 / 1 jika mau kotak sempurna */
+  overflow: hidden;
 }
 
 .article-intro img {
   width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
+  height: 100%;
+  object-fit: cover;        /* agar foto menutup penuh dan proporsional */
+  display: block;
 }
 
 .article-meta {
@@ -84,10 +88,8 @@ body {
 .literasi-tabs {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
   border-bottom: 2px solid #ccc;
-  gap: 24rem;
+  gap: 2rem;               /* sesuaikan gap agar tidak terlalu lebar */
   font-weight: 600;
 }
 
@@ -110,12 +112,11 @@ body {
   border-bottom: 3px solid #0B1E4F;
   color: #0B1E4F;
   font-weight: bold;
-  background-color: transparent;
 }
 
 .literasi-content {
   margin: 2rem auto 3rem;
-  padding: 1.5rem 5rem 4rem;
+  padding: 1.5rem 2rem;     /* kurangin padding sisi agar pas */
   line-height: 2;
   text-align: justify;
 }
@@ -126,6 +127,25 @@ body {
 
 .tab-content.active {
   display: block;
+}
+
+.selesai-baca-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding-bottom: 60px;
+}
+
+.selesai-baca-btn {
+  background-color: #0B1E4F;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .right-buttons {
@@ -151,23 +171,4 @@ body {
 .right-buttons img {
   width: 20px;
   height: 20px;
-}
-
-.selesai-baca-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    padding-bottom: 60px;
-}
-
-.selesai-baca-btn {
-    background-color: #0B1E4F;
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }

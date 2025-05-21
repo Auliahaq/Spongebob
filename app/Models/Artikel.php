@@ -21,4 +21,10 @@ class Artikel extends Model
         'content_sedang',
         'content_sulit',
     ];
+
+    // app/Models/Artikel.php
+    public function readers()
+    {
+    return $this->hasMany(Read::class);
+    }
 }

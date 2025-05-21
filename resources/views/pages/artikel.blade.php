@@ -81,7 +81,6 @@
       @endforeach
       </div>
       <div class="latest-button-container">
-        <button class="latest-button">PORTFOLIO</button>
       </div>
     </div>
   </section>
