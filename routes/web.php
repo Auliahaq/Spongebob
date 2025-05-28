@@ -10,6 +10,8 @@ use App\Http\Controllers\{
     PerformaController,
     TentangController
 };
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +26,14 @@ Route::get('/register',         [AuthController::class, 'showRegister'])->name('
 Route::post('/register',        [AuthController::class, 'register']);
 Route::post('/logout',          [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/forgot-password',  [AuthController::class, 'showForgot'])->name('password.request');
-Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
-Route::get('/reset-password/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
-Route::post('/reset-password',       [AuthController::class, 'resetPassword'])->name('password.update');
+// Route::get('/forgot-password',  [AuthController::class, 'showForgot'])->name('password.request');
+// Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
+Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])->middleware('guest')->name('password.request');
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [NewPasswordController::class, 'store'])->middleware('guest')->name('password.update');
+// Route::get('/reset-password/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
+// Route::post('/reset-password',       [AuthController::class, 'resetPassword'])->name('password.update');
 
 // — Dashboard/Home (setelah login)
 Route::middleware('auth')->group(function() {

@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class AuthController extends Controller
@@ -113,12 +115,20 @@ class AuthController extends Controller
         ['token' => $token, 'created_at' => now()]
     );
 
-    // Redirect + kirim token & email
-    return redirect()->route('password.reset', [
+    // Kirim email ke user
+    $resetLink = route('password.reset', [
         'token' => $token,
         'email' => $request->email,
     ]);
+
+    Mail::raw("Klik link berikut untuk mereset password Anda:\n\n$resetLink", function ($message) use ($request) {
+        $message->to($request->email)
+                ->subject('Reset Password Akun Anda');
+    });
+
+    return back()->with('status', 'Link reset password telah dikirim ke email Anda.');
 }
+
     public function logout(Request $request)
     {
         Auth::logout();
