@@ -4,41 +4,54 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/forgotreset-password.css') }}">
+
 <div class="auth-box">
-  <h2>Reset Password</h2>
+    <h2>Reset Password</h2>
 
-  {{-- tampilan error/success --}}
-  @if(session('status'))
-    <div class="success">{{ session('status') }}</div>
-  @endif
-  @error('password')
-    <div class="error">{{ $message }}</div>
-  @enderror
+    {{-- Pesan sukses --}}
+    @if (session('status'))
+        <div class="success">{{ session('status') }}</div>
+    @endif
 
-  <form method="POST" action="{{ route('password.update') }}">
-    @csrf
+    {{-- Error password --}}
+    @error('password')
+        <div class="error">{{ $message }}</div>
+    @enderror
 
-    {{-- token dari URL --}}
-    <input type="hidden" name="token" value="{{ $token }}">
-    {{-- email disembunyikan, tapi tetap dikirim --}}
-    <input type="hidden" name="email" value="{{ $email }}">
+    <form method="POST" action="{{ route('password.update') }}">
+        @csrf
 
-    {{-- hanya password & konfirmasi --}}
-    <input type="password"
-           name="password"
-           placeholder="Password Baru"
-           required>
+        {{-- Token wajib dari URL --}}
+        <input type="hidden" name="token" value="{{ $token }}">
 
-    <input type="password"
-           name="password_confirmation"
-           placeholder="Konfirmasi Password"
-           required>
+        {{-- Email pengguna (wajib untuk validasi reset) --}}
+        <input
+            type="hidden"
+            name="email"
+            value="{{ old('email', $email) }}"
+        >
 
-    <button type="submit">Reset Password</button>
-  </form>
+        {{-- Password baru --}}
+        <input
+            type="password"
+            name="password"
+            placeholder="Password Baru"
+            required
+        >
 
-  <div class="link">
-    <a href="{{ route('login') }}">Kembali ke Login</a>
-  </div>
+        {{-- Konfirmasi password --}}
+        <input
+            type="password"
+            name="password_confirmation"
+            placeholder="Konfirmasi Password"
+            required
+        >
+
+        <button type="submit">Reset Password</button>
+    </form>
+
+    <div class="link">
+        <a href="{{ route('login') }}">Kembali ke Login</a>
+    </div>
 </div>
 @endsection

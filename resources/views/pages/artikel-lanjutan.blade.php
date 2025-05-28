@@ -81,6 +81,19 @@
   <button id="scroll-up" title="Ke Atas"><img src="{{ asset('img/arrow.jpg') }}" alt="Atas"></button>
 </div>
 
+<!-- Modal Chat -->
+<div id="chatModal" class="chat-modal hidden fixed bottom-20 right-10 z-50 bg-white rounded-lg shadow-lg w-80 border border-gray-200">
+  <div class="flex justify-between items-center p-3 border-b">
+    <strong>Lexica AI : Asisten Membaca</strong>
+    <button onclick="closeChat()" class="text-xl font-bold">&times;</button>
+  </div>
+  <div class="p-4">
+    <textarea placeholder="Ada yang bisa kami bantu?" class="w-full p-2 border rounded" rows="4"></textarea>
+    <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded">Tanyakan pada kami</button>
+  </div>
+</div>
+
+
 <script>
   // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn=>{
@@ -96,4 +109,20 @@
     window.scrollTo({ top:0, behavior:'smooth' });
   });
 </script>
+
+
+
+<script>
+  const modal = document.getElementById('chatModal');
+  const toggleBtn = document.getElementById('AI');
+
+  toggleBtn.addEventListener('click', () => {
+    modal.classList.toggle('hidden');
+  });
+
+  function closeChat() {
+    modal.classList.add('hidden');
+  }
+</script>
+
 @endsection
