@@ -1,77 +1,93 @@
 html, body {
   overflow-x: hidden;
 }
+
 .koleksi-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.koleksi-search {
+  margin-bottom: 20px;
 }
 
 .koleksi-search input {
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 4px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.koleksi-search button {
+  padding: 10px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .koleksi-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .koleksi-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    width: 200px;
-    text-align: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .koleksi-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.koleksi-text {
+  flex-grow: 1;
 }
 
 .koleksi-name {
-    font-size: 16px;
-    font-weight: bold;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
 }
 
-.koleksi-author,
-.koleksi-article-count {
-    font-size: 14px;
-    color: #555;
+.koleksi-author {
+  font-size: 13px;
+  color: #666;
 }
 
-.btn-delete {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-top: 10px;
-    border-radius: 5px;
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
 }
 
-.koleksi-form input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    border-radius: 5px;
+.btn-lihat {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.koleksi-form button {
-    padding: 10px;
-    background-color: #3b5998;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 18px;
+    color: #888;
 }
