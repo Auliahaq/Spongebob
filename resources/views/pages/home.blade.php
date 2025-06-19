@@ -2,8 +2,11 @@
 
 @section('title', 'Beranda — Lexica')
 
-@section('content')
+@section('styles')
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+@endsection
+
+@section('content')
 
 <!-- Hero Section -->
 <div class="hero">
@@ -19,11 +22,11 @@
   <div class="literasi-box">
     <h2>LITERASI ADALAH HAK SEMUA ORANG</h2>
     <p>
-      Setiap individu berhak untuk bisa membaca, menulis, memahami, dan berpikir kritis. Bukan cuma soal buku atau teks,
-      tapi tentang kemampuan untuk memahami dunia, menilai informasi, dan menyuarakan pendapat. Di era digital yang
-      serba cepat ini, literasi jadi kunci untuk bertahan dan berkembang. Maka dari itu, kami hadir untuk membuka akses,
-      menjembatani kesenjangan, dan memastikan bahwa tak ada satu pun yang tertinggal. Karena literasi bukan soal siapa kamu,
-      dari mana asalmu, atau apa statusmu — tapi hak dasar yang harus dimiliki semua orang.
+      Setiap individu berhak untuk bisa membaca, menulis, memahami, dan berpikir kritis.
+      Bukan cuma soal buku atau teks, tapi tentang kemampuan untuk memahami dunia, menilai informasi, dan menyuarakan pendapat.
+      Di era digital yang serba cepat ini, literasi jadi kunci untuk bertahan dan berkembang.
+      Maka dari itu, kami hadir untuk membuka akses, menjembatani kesenjangan, dan memastikan bahwa tak ada satu pun yang tertinggal.
+      Karena literasi bukan soal siapa kamu, dari mana asalmu, atau apa statusmu — tapi hak dasar yang harus dimiliki semua orang.
     </p>
   </div>
 </section>
@@ -44,19 +47,20 @@
   <h3>ARTIKEL TERBARU</h3>
   <div class="artikel-list">
     @foreach ($artikels as $artikel)
-  <div class="artikel-item">
-    <img src="{{ asset($artikel->gambar ?? 'img/default.jpg') }}" alt="{{ $artikel->judul }}">
-
-    <h4>
-      <a href="{{ route('artikel.show', $artikel->id) }}" class="artikel-link">
-        {{ strtoupper(Str::words($artikel->judul, 2, '...')) }}
-      </a>
-    </h4>
-
-    <p>{{ Str::limit($artikel->content_mudah, 80, '...') }}</p>
-  </div>
-@endforeach
-
+      <div class="artikel-item">
+        <img src="{{ asset($artikel->gambar ?? 'img/default.jpg') }}" alt="{{ $artikel->judul }}">
+        <h4>
+          <a
+            href="{{ auth()->check() ? route('artikel.show', $artikel->id) : 'javascript:void(0)' }}"
+            class="artikel-link"
+            @guest onclick="alert('Silakan login terlebih dahulu untuk membaca artikel lengkap.')" @endguest
+          >
+            {{ strtoupper(Str::words($artikel->judul, 2, '...')) }}
+          </a>
+        </h4>
+        <p>{{ Str::limit($artikel->content_mudah, 80, '...') }}</p>
+      </div>
+    @endforeach
   </div>
 </section>
 
@@ -67,4 +71,5 @@
   <button>PORTFOLIO</button>
   <p class="footer-quote">Aku jatuh cinta pada huruf, karena mereka tak pernah bohong.</p>
 </section>
+
 @endsection

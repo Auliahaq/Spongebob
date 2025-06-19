@@ -25,6 +25,11 @@ main {
 .hero-img {
   max-width: 250px;
   margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: translateY(-10px) scale(1.05);
 }
 
 .quote {
@@ -46,6 +51,12 @@ main {
   max-width: 800px;
   color: white;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.literasi-box:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .literasi-box h2 {
@@ -183,4 +194,19 @@ main {
   font-style: italic;
   font-size: 13px;
   margin-top: 15px;
+}
+
+.stat {
+  background: #8fbdfd;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.stat:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }

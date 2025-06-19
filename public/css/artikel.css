@@ -71,13 +71,10 @@ body {
   object-fit: cover;
   border-radius: 0.5rem;
 }
-
 .highlight-content {
-  display: flex;
-  flex-direction: column;
-  line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .highlight-meta {
   font-size: 0.875rem;
   color: #6b7280;
@@ -91,7 +88,11 @@ body {
 }
 
 .highlight-desc {
-  color: #4b5563;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Card Section */

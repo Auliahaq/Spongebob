@@ -1,77 +1,87 @@
-<?php 
+<?php
 
-// app/Http/Controllers/KoleksiController.php
 namespace App\Http\Controllers;
 
 use App\Models\Koleksi;
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 
 class KoleksiController extends Controller
 {
-    // Menampilkan daftar koleksi
+    // ✅ Versi index yang sudah diperbaiki + pencarian
     public function index(Request $request)
     {
-        // Cek apakah ada query pencarian
-        $query = Koleksi::query();
+        $user = auth()->user();
+        $search = $request->get('search');
 
-        // Jika ada parameter pencarian 'search', filter berdasarkan nama koleksi
-        if ($request->has('search') && $request->search) {
-            $query->where('name', 'like', '%' . $request->search . '%');
-        }
+        $koleksi = Koleksi::with(['artikels' => function ($q) use ($search) {
+            if ($search) {
+                $q->where('judul', 'like', "%{$search}%");
+            }
+        }])
+        ->where('user_id', $user->id)
+        ->where('name', 'Koleksi Saya')
+        ->first();
 
-        // Ambil data koleksi sesuai query
-        $koleksi = $query->get();
-        
-        // Mengembalikan view koleksi dengan data koleksi
-        return view('pages.koleksi', compact('koleksi')); // Pastikan nama view sesuai dengan file koleksi.blade.php
+        $artikels = $koleksi ? $koleksi->artikels : collect();
+
+        return view('pages.koleksi', compact('koleksi', 'artikels', 'search'));
     }
 
-    // Menyimpan koleksi baru ke dalam database
-    public function store(Request $request)
+    // Tambahkan artikel ke koleksi default user
+    public function tambahArtikel(Request $request)
     {
-        // Validasi input
         $request->validate([
-            'name' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
-            'article_count' => 'required|integer',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+            'artikel_id' => 'required|exists:artikel,id',
         ]);
 
-        // Proses upload gambar jika ada
-        $avatar = null;
-        if ($request->hasFile('avatar')) {
-            // Menyimpan gambar ke dalam folder 'public/img/koleksi' menggunakan nama file unik
-            $avatarName = time() . '.' . $request->avatar->extension();
-            $request->avatar->move(public_path('img/koleksi'), $avatarName); // Pindahkan gambar ke folder public/img/koleksi
-            $avatar = 'img/koleksi/' . $avatarName; // Menyimpan path relatif ke gambar
-        }
+        $user = auth()->user();
 
-        // Menyimpan data koleksi ke dalam database
-        Koleksi::create([
-            'name' => $request->name,
-            'author' => $request->author,
-            'article_count' => $request->article_count,
-            'avatar' => $avatar, // Menyimpan path file gambar
-        ]);
+        $koleksi = Koleksi::firstOrCreate(
+            ['name' => 'Koleksi Saya', 'user_id' => $user->id],
+            ['author' => '-', 'article_count' => 0]
+        );
 
-        return redirect()->route('koleksi.index')->with('success', 'Koleksi berhasil ditambahkan');
+        $koleksi->artikels()->syncWithoutDetaching([$request->artikel_id]);
+
+        // Perbarui jumlah artikel
+        $koleksi->article_count = $koleksi->artikels()->count();
+        $koleksi->save();
+
+        return back()->with('success', 'Artikel berhasil ditambahkan ke koleksi!');
     }
 
-    // Menangani penghapusan koleksi
+    // Hapus koleksi
     public function destroy($id)
     {
-        // Mencari koleksi berdasarkan ID
         $koleksi = Koleksi::findOrFail($id);
 
-        // Menghapus file gambar jika ada
         if ($koleksi->avatar && file_exists(public_path($koleksi->avatar))) {
-            unlink(public_path($koleksi->avatar)); // Menghapus file gambar
+            unlink(public_path($koleksi->avatar));
         }
 
-        // Menghapus koleksi dari database
+        $koleksi->artikels()->detach();
         $koleksi->delete();
 
-        // Mengarahkan kembali dengan pesan sukses
         return redirect()->route('koleksi.index')->with('success', 'Koleksi berhasil dihapus');
+    }
+
+public function ajaxSearch(Request $request)
+{
+    $user = auth()->user();
+    $search = $request->get('query');
+
+    $koleksi = Koleksi::with(['artikels' => function ($q) use ($search) {
+        $q->where('judul', 'like', "%$search%");
+    }])
+    ->where('user_id', $user->id)
+    ->where('name', 'Koleksi Saya')
+    ->first();
+
+    $artikels = $koleksi ? $koleksi->artikels : collect();
+
+    $html = view('partials.koleksi-artikel-list', compact('artikels'))->render();
+
+    return response()->json(['html' => $html]);
     }
 }

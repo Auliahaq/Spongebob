@@ -2,17 +2,24 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const input = document.getElementById('search-input');
-  const list  = document.getElementById('friend-list');
+  const list = document.getElementById('friend-list');
   if (!input || !list) return;
-
-  const items = Array.from(list.querySelectorAll('.friend-item'));
 
   input.addEventListener('input', function () {
     const q = this.value.toLowerCase().trim();
+    const items = list.querySelectorAll('.friend-item');
+
     items.forEach(item => {
-      const name  = item.querySelector('.name').textContent.toLowerCase();
-      const email = item.querySelector('.email').textContent.toLowerCase();
-      item.style.display = (name.includes(q) || email.includes(q)) ? '' : 'none';
+      const nameEl = item.querySelector('.name');
+      const emailEl = item.querySelector('.email');
+      const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+      const email = emailEl ? emailEl.textContent.toLowerCase() : '';
+
+      if (name.includes(q) || email.includes(q)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
     });
   });
 });

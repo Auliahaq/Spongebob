@@ -1,20 +1,20 @@
 <?php
-// database/migrations/2025_05_19_012345_create_koleksi_table.php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKoleksiTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::create('koleksi', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('author');
-            $table->integer('article_count');
-            $table->string('avatar')->nullable();  // Menambahkan kolom avatar
-            $table->timestamps();  // Menambahkan created_at dan updated_at
+            $table->unsignedBigInteger('user_id')->nullable(); // jika ingin asosiasikan ke pengguna
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -22,4 +22,4 @@ class CreateKoleksiTable extends Migration
     {
         Schema::dropIfExists('koleksi');
     }
-}
+};

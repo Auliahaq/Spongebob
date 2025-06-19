@@ -27,4 +27,9 @@ class Artikel extends Model
     {
     return $this->hasMany(Read::class);
     }
+    public function koleksis()
+    {
+    return $this->belongsToMany(Koleksi::class, 'koleksi_artikel', 'artikel_id', 'koleksi_id')->withTimestamps();
+    }
+
 }

@@ -1,179 +1,249 @@
+/* Reset dan box sizing */
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f6f7fb;
+  color: #111827;
+  margin: 0;
+}
 
 
-  /* Reset dan box sizing */
-  * {
-    box-sizing: border-box;
-  }
-  main {
-    font-family: 'Poppins', sans-serif;
-  }
-  body {
-    background-color: #f6f7fb;
-    color: #111827;
-    margin: 0;
-  }
 
-  .teman-wrapper {
-    max-width: 900px;
-    margin: 2rem auto 4rem;
-    background-color: #f6f7fb;
-    border-radius: 20px;
-    padding: 2rem 2.5rem 3rem;
-    box-shadow: 0 5px 15px rgb(0 0 0 / 0.05);
-  }
+/* Container utama */
+.teman-wrapper {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  background-color: #f6f7fb;
+  border-radius: 20px;
+  padding: 2rem 2.5rem 3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
 
-  h1.title {
-    font-weight: 600;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #111827;
-  }
+}
 
-  /* Header form area */
-  .form-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
+h1.title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #111827;
+}
 
-  .form-header input[type="text"],
-  .form-header input[type="email"],
-  .form-header input[type="url"] {
-    flex: 1;
-    padding: 0.6rem 1rem;
-    border-radius: 30px;
-    border: 1.5px solid #d1d5db;
-    font-size: 0.9rem;
-    color: #374151;
-    outline-offset: 3px;
-    transition: border-color 0.3s ease;
-  }
+/* Form Tambah Teman */
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
 
-  .form-header input[type="text"]:focus,
-  .form-header input[type="email"]:focus,
-  .form-header input[type="url"]:focus {
-    border-color: #3b82f6;
-  }
+.form-header input[type="text"],
+.form-header input[type="email"],
+.form-header input[type="url"] {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  border: 1.5px solid #d1d5db;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
 
-  .btn-add {
-    width: 40px;
-    height: 40px;
-    background-color: #3b82f6;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
+.form-header input:focus {
+  border-color: #3b82f6;
+}
 
-  .btn-add:hover {
-    background-color: #2563eb;
-  }
+.btn-add {
+  width: 40px;
+  height: 40px;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
 
-  /* List teman */
-  ul.friend-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+.btn-add:hover {
+  background-color: #2563eb;
+}
 
-  li.friend-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 3px 6px rgb(0 0 0 / 0.05);
-  }
+/* Daftar Teman */
+ul.friend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  /* Bagian info teman */
-  .friend-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+li.friend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
 
-  .friend-info img.avatar {
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
-    border-radius: 15px;
-    flex-shrink: 0;
-  }
+/* Info Teman */
+.friend-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
-  .friend-text {
-    display: flex;
-    flex-direction: column;
-  }
+.friend-info img.avatar {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
 
-  .friend-text .name {
-    font-weight: 700;
-    font-size: 1rem;
-    color: #111827;
-    margin-bottom: 0.2rem;
-  }
+.friend-text {
+  display: flex;
+  flex-direction: column;
+}
 
-  .friend-text .email {
-    font-size: 0.85rem;
-    color: #6b7280;
-  }
+.friend-text .name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 0.2rem;
+}
 
-  /* Tombol hapus */
-  form.delete-form {
-    margin: 0;
-  }
+.friend-text .email {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
 
-  button.btn-delete {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #6b7280;
-    transition: color 0.2s ease;
-  }
+/* Tombol Hapus */
+form.delete-form {
+  margin: 0;
+}
+button.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+button.btn-delete:hover {
+  color: #ef4444;
+}
 
-  button.btn-delete:hover {
-    color: #ef4444;
-  }
+/* Tombol Terima/Tolak */
+button.btn-accept,
+button.btn-decline {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background-color 0.2s ease;
+}
 
-  /* Footer */
-  .footer-readmore {
-    background-color: #112a66;
-    color: white;
-    text-align: center;
-    padding: 3rem 1rem 3rem;
-    border-radius: 0 0 20px 20px;
-    margin-top: 2rem;
-  }
+button.btn-accept {
+  background-color: #10b981;
+  color: white;
+  margin-right: 0.5rem; /* Atur sesuai kebutuhan */
+}
+button.btn-accept:hover {
+  background-color: #059669;
+}
 
-  .footer-readmore h2 {
-    margin: 0 0 1rem;
-    font-weight: 700;
-    font-size: 1.125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+button.btn-decline {
+  background-color: #ef4444;
+  color: white;
+}
+button.btn-decline:hover {
+  background-color: #dc2626;
+}
 
-  .footer-readmore p {
-    margin: 0 0 0.7rem;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* Modal Tambah Teman */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+.modal .close {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal:not(.hidden) {
+  display: flex;
+}
+.modal input[type="email"] {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+.modal .btn-submit {
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal .btn-submit:hover {
+  background-color: #2563eb;
+}
 
-  .footer-readmore p:last-child {
-    font-style: italic;
-    font-weight: 600;
-  }
-  
+/* Footer */
+.footer-readmore {
+  background-color: #112a66;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-radius: 0 0 20px 20px;
+  margin-top: 2rem;
+}
+.footer-readmore h2 {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.footer-readmore p {
+  margin: 0 auto;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 600px;
+}
+.footer-readmore p:last-child {
+  font-style: italic;
+  font-weight: 600;
+}

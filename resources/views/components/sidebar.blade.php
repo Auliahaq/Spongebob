@@ -1,6 +1,14 @@
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <img src="{{ asset('img/profile.png') }}" alt="Profile" class="sidebar-avatar">
+    <img 
+      src="{{ Auth::user()->avatar 
+              ? asset('storage/' . Auth::user()->avatar) 
+              : asset('img/profile.png') 
+          }}" 
+      alt="Profile" 
+      class="sidebar-avatar"
+      style="object-fit: cover;"
+    >
     <div class="sidebar-user-info">
       <p class="sidebar-name">{{ auth()->user()->name }}</p>
       <p class="sidebar-email">{{ auth()->user()->email }}</p>
